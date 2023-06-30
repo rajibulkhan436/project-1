@@ -1,5 +1,6 @@
 package com.rajibul.project1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     var etPhoneNumber :EditText?=null
     var btnValidate : Button?=null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -19,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         etAboutCollege=findViewById(R.id.etAboutCollege)
         etPhoneNumber=findViewById(R.id.etPhoneNumber)
         btnValidate=findViewById(R.id.btnValidate)
+
 
         btnValidate?.setOnClickListener{
             if(etName?.text.isNullOrEmpty()){
@@ -29,8 +32,11 @@ class MainActivity : AppCompatActivity() {
                 etPhoneNumber?.error="enter your phone Number"
             }else{
                 Toast.makeText(this, "Form Validated Successfully", Toast.LENGTH_LONG).show()
+                var intent = Intent(this,CheckboxRadioActivity::class.java)
+                startActivity(intent)
             }
         }
+
 
     }
 
